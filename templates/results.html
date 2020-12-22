@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Review Page</title>
+<script src="{{url_for('static', filename='js/jquery-2.1.4.min.js')}}"></script>
+<script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+
+
+</head>
+
+<body  style="background: -webkit-linear-gradient(left, #3931af, #00c6ff);">
+
+  <div class="container-fluid">
+      <h2 style="color: #FFFFFF;text-align: center">Prediction</h2>>
+
+      <div  class="card" style=" margin-top:20px;text-align: center">
+    <div class="card-body" >
+        <p style="color: #FFFFFF;font-weight:bold"><h4><strong>{{prediction}}</strong></h4></p>
+    </div>
+    </div>
+</div>
+
+
+
+</body>
+
+</html>

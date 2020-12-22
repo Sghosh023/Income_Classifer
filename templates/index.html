@@ -1,0 +1,166 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title>Welcome Page</title>
+
+
+<script src="{{url_for('static', filename='js/jquery-2.1.4.min.js')}}"></script>
+<script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+<script type=text/javascript>
+</script>
+{% endblock %}
+
+{% block body %}
+<style>
+
+.content{
+    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+    margin-top: 2%;
+    padding: 3%;
+}
+.form-group{
+margin-left:10px;
+margin-right:10px;
+
+}
+label
+{
+color:#FFFFFF;
+}
+</style>
+<body>
+    <h3 style="text-align: center">Income Classifier </h3>
+<div class="container content">
+<form  action="/predict" method="POST">
+    <div class="row">
+        <div class="col-md-2"></div>
+      <div class="col-md-4">
+    <label for="age">Age:</label>
+    <input type="number"  min="10" max="90" class="form-control" placeholder="Enter Age" id="age" name="age" required>
+  </div>
+
+        <div class="col-md-4">
+   <label for="occupation" >Occupation:</label>
+  <select class="form-control" name="occupation" id="occupation">
+    <option>Manager</option>
+    <option>Specialist</option>
+    <option>Sales</option>
+    <option>Clerical</option>
+      <option>Cleaners</option>
+    <option>Other-service</option>
+    <option>Craft-repair</option>
+  </select>
+  </div>
+
+      </div>
+      <div class="row">
+        <div class="col-md-2"></div>
+
+          <div class="col-md-4" style="margin-top:10px;">
+<label for="capital_loss">Capital Loss:</label>
+
+    <input type="number" class="form-control" min="0" placeholder="Enter Capital Loss" id="capital_loss" name="capital_loss" required>
+  </div>
+
+        <div class="col-md-4" style="margin-top:10px;">
+<label for="capital_gain">Capital Gain:</label>
+
+    <input type="number" min="0" class="form-control" placeholder="Enter Capital Gain" id="capital_gain" name="capital_gain" required>
+  </div>
+      </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+      <div class="col-md-4"style="margin-top:10px;">
+    <label for="hours_per_week">Hours Per Week:</label>
+    <input type="number" min="0" max="130" class="form-control" placeholder="Hours Per Week" id="hours_per_week" name="hours_per_week" required>
+  </div>
+
+        <div class="col-md-4" style="margin-top:10px;">
+   <label for="education" >Education:  <a href="#" data-toggle="tooltip" title="* Class 10 or less than that is low.
+Medium is 11/12/Hs-grad.
+High is bachelors/master/doctorate">
+    <span  style="color: #fcfcfd;"class="glyphicon glyphicon-info-sign"></span>
+  </a></label>
+  <select class="form-control" name="education" id="education">
+    <option>Low</option>
+    <option>Medium</option>
+    <option>High</option>
+  </select>
+
+  </div>
+
+      </div>
+     <div class="row">
+        <div class="col-md-2"></div>
+      <div class="col-md-4"style="margin-top:10px;">
+          <label for="workclass" >Work class:</label>
+  <select class="form-control" name="workclass" id="workclass">
+	<option>Govt_emp</option>
+    <option>Private</option>
+    <option>Self_emp</option>
+    <option>Others</option>
+  </select>
+      </div>
+
+        <div class="col-md-4" style="margin-top:10px;">
+   <label for="marital_status" >Marital Status:</label>
+  <select class="form-control" name="marital_status" id="marital_status">
+    <option>Married</option>
+    <option>Single</option>
+    <option>Separated</option>
+      <option>Widowed</option>
+      <option>Divorced</option>
+  </select>
+  </div>
+
+      </div>
+     <div class="row">
+        <div class="col-md-2"></div>
+      <div class="col-md-4"style="margin-top:10px;">
+          <label for="race" >Race:</label>
+  <select class="form-control" name="race" id="race">
+    <option>White</option>
+    <option>Black</option>
+    <option>Other</option>
+  </select>
+      </div>
+
+        <div class="col-md-4" style="margin-top:10px;">
+   <label for="native_country" >Native country:</label>
+  <select class="form-control" name="native_country" id="native_country">
+    <option>United_States</option>
+    <option>Mexico</option>
+    <option>Germany</option>
+      <option>Canada</option>
+      <option>Philippines</option>
+      <option>Others</option>
+  </select>
+  </div>
+     </div>
+         <div class="row">
+             <div class="col-md-2"></div>
+             <div class="col-md-6">
+               <div  form-check form-check-inline id="sex"  style="margin-top:10px;">
+         <label for="sex">Sex:</label>
+
+          <input class="form-check-input" name="sex" type="radio" id="radio-3279" value="1" style="margin-left:10px" checked>
+          <label class="form-check-label" for="radio-3279">Female</label>
+          <input class="form-check-input" name="sex" type="radio"  id="radio-3379" value="0" style="margin-left:10px">
+          <label class="form-check-label" for="radio-3379">Male</label>
+          </div>
+             </div>
+
+         </div>
+    <div class ="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+        <input type="submit" value="Predict"  style="margin-bottom:10px;margin-top:10px;font-weight:bold" class="btn btn-outline-secondary btn-block"/>
+   </div>
+    </div>
+</form>
+
+</div>
+</body>
+{% endblock %}
